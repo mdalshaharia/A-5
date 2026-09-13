@@ -1,7 +1,7 @@
 import React, { use, useState } from "react";
 import TechCard from "../../Utils/TachCard";
-import SidePanel from "../sidePanel/sidePanel";
 import { toast } from "react-toastify";
+import SidePanel from "../../Components/sidePanel/SidePanel";
 
 const data = fetch("/Data/data.json").then((res) => res.json());
 
