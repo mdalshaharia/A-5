@@ -4,6 +4,7 @@ import './App.css'
 import ExploreTech from './Components/ExploreTechnology/ExploreTech'
 import Hero from './Components/Hero/Hero'
 import Nav from './Components/Nav/Nav'
+import Footer from './Components/Footer/Footer'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
      <Suspense fallback={<div>Loading...</div>}>
         <ExploreTech></ExploreTech>
       </Suspense>
+      <Footer></Footer>
     </>
   )
 }
