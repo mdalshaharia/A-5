@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+.btn-gradient {
+  background: linear-gradient(to right,violet,#FF00FF,deeppink );
+}
+
+.brand-gradient-text {
+  background: linear-gradient(to right, violet,#FF00FF,deeppink);
+  background-clip: text;
+  color: transparent;
+}
