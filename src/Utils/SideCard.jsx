@@ -19,7 +19,7 @@ const SideCard = ({tech, removeFromStack}) => {
       <button
         onClick={() => removeFromStack(tech.name)}
         aria-label={`Remove ${tech.name} from stack`}
-        className="text-gray-400 transition-colors hover:text-gray-600"
+        className="text-gray-400"
       >
         <X className="h-5 w-5" />
       </button>
