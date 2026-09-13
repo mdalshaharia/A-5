@@ -5,6 +5,7 @@ import ExploreTech from './Components/ExploreTechnology/ExploreTech'
 import Hero from './Components/Hero/Hero'
 import Nav from './Components/Nav/Nav'
 import Footer from './Components/Footer/Footer'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <ExploreTech></ExploreTech>
       </Suspense>
       <Footer></Footer>
+      <ToastContainer></ToastContainer>
     </>
   )
 }

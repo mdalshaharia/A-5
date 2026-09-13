@@ -1,6 +1,7 @@
 import React, { use, useState } from "react";
 import TechCard from "../../Utils/TachCard";
 import SidePanel from "../sidePanel/sidePanel";
+import { toast } from "react-toastify";
 
 const data = fetch("/Data/data.json").then((res) => res.json());
 
@@ -13,30 +14,35 @@ const ExploreTech = () => {
     return savedStack ? JSON.parse(savedStack) : [];
   });
 
-  const addToStack = (name) => {
-    setStack((prev) => {
-      if (prev.includes(name)) { alert("Already added to stack"); return prev; }
-      const updatedStack = [...prev, name];
-      // console.log("updated", updatedStack, "name", name, "prev", prev);
-      localStorage.setItem("stack", JSON.stringify(updatedStack));
-      setUpdateStack(updatedStack);
-      return updatedStack;
-    });
-  };
+ const addToStack = (name) => {
+  if (stack.includes(name)) {
+    toast.error("Already added to stack");
+    return;
+  }
+  const updatedStack = [...stack, name];
+  setStack(updatedStack);
+  setUpdateStack(updatedStack);
+  localStorage.setItem("stack", JSON.stringify(updatedStack));
+  toast.success(`${name} added to stack`);
+};
 
-  const removeFromStack = (name) => {
-    setStack((prev) => {
-      const updatedStack = prev.filter((item) => item !== name);
-      localStorage.setItem("stack", JSON.stringify(updatedStack));
-      setUpdateStack(updatedStack);
-      return updatedStack;
-    });
-  };
+const removeFromStack = (name) => {
+  if (!stack.includes(name)) {
+    return;
+  }
+
+  const updatedStack = stack.filter((item) => item !== name);
+  setStack(updatedStack);
+  setUpdateStack(updatedStack);
+  localStorage.setItem("stack", JSON.stringify(updatedStack));
+  toast.success(`${name} removed from stack`);
+};
 
   const removeAllFromStack = () => {
     setStack([]);
     setUpdateStack([]);
     localStorage.removeItem("stack");
+    toast.success("All technologies removed from stack");
   };
 
   const filtered =
