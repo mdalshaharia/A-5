@@ -1,4 +1,5 @@
 
+import { Suspense } from 'react'
 import './App.css'
 import ExploreTech from './Components/ExploreTechnology/ExploreTech'
 import Hero from './Components/Hero/Hero'
@@ -10,7 +11,9 @@ function App() {
     <>
     <Nav></Nav>
     <Hero></Hero>
-    <ExploreTech></ExploreTech>
+     <Suspense fallback={<div>Loading...</div>}>
+        <ExploreTech></ExploreTech>
+      </Suspense>
     </>
   )
 }
